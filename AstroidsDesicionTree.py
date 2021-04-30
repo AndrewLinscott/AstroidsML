@@ -33,7 +33,7 @@ def trainclassifier(x_train, y_train):
 
 features = cleandata(astroids)
 #-----------spliting data-------------#
-x_train, x_test, y_train, y_test = train_test_split(features[0], features[1], test_size=0.995, random_state=1) # 70% training and 30% test
+x_train, x_test, y_train, y_test = train_test_split(features[0], features[1], test_size=0.3, random_state=1) # 70% training and 30% test
 #------create trained calssifer-------#
 classifier = trainclassifier(x_train, y_train)
 #-----------test model----------------#
