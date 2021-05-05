@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+print("\n-------------------")
+
 import pandas as pd
 import requests
 from requests import get
