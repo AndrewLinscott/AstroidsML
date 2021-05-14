@@ -24,12 +24,11 @@ def cleandata(data:pd.core.frame.DataFrame):
 
 def trainclassifier(x_train, y_train):
     #-----------create classifer----------#
-    clf = DecisionTreeClassifier()
+    clf = DecisionTreeClassifier(criterion="entropy", max_depth=6)
     #-----------train model---------------#
     clf = clf.fit(x_train,y_train)
     
     return clf
-
 
 features = cleandata(astroids)
 #-----------spliting data-------------#
@@ -40,5 +39,8 @@ classifier = trainclassifier(x_train, y_train)
 y_pred = classifier.predict(x_test)
 y_pred_train = classifier.predict(x_train)
 #-----------evaluate model------------#
-print("Accuracy for test  set:",metrics.accuracy_score(y_test, y_pred))
-print("Accuracy for train set:", metrics.accuracy_score(y_pred_train, y_train))
+testAc=metrics.accuracy_score(y_test, y_pred)
+trainAc=metrics.accuracy_score(y_pred_train, y_train)
+    
+print("Accuracy for test  set:",testAc)
+print("Accuracy for train set:", trainAc)
